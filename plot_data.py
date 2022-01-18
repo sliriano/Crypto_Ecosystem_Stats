@@ -9,15 +9,12 @@ def plot_marketcap(id):
 
     data = db.get_eco_stats(id)
 
-    x = []
-    y = []
+    dates = []
+    mc = []
 
     for i in data:
-        x.append(i[2])
-        y.append(i[4])
-
-    dates = x
-    mc = y
+        mc.append(i[2])
+        dates.append(i[4])
 
     plt.plot(mc,dates)
     plt.ylabel("Market Cap")
@@ -32,21 +29,18 @@ def plot_volume(id):
 
     data = db.get_eco_stats(id)
 
-    x = []
-    y = []
+    dates = []
+    volume = []
 
     for i in data:
-        x.append(i[3])
-        y.append(i[4])
+        volume.append(i[3])
+        dates.append(i[4])
 
-    dates = x
-    volume = y
-
-    plt.plot(volume,dates)
+    plt.plot(dates,volume)
     plt.ylabel("Volume")
     plt.xlabel("Dates")
     plt.title(data[0][1] + " Volume Over Time")
     plt.show()
 
-# plot_marketcap('smart-contract-platform')
+#plot_marketcap('smart-contract-platform')
 plot_volume('smart-contract-platform')
