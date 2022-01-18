@@ -9,13 +9,13 @@ class DBHelper:
 
     def setup(self):
         # creates a table within our databse 
-        create_table = "CREATE TABLE IF NOT EXISTS ecosystem_stats (id, name, market_cap, content, volume_24h, time)"
+        create_table = "CREATE TABLE IF NOT EXISTS ecosystem_stats (id, name, market_cap, volume_24h, time)"
         self.conn.execute(create_table)
         self.conn.commit()
     
     def add_data(self, request_tuple):
         # inserts an item into the table
-        insert = "INSERT INTO ecosystem_stats VALUES (?,?,?,?,?,?)"
+        insert = "INSERT INTO ecosystem_stats VALUES (?,?,?,?,?)"
         self.conn.execute(insert, request_tuple)
         self.conn.commit()
     
