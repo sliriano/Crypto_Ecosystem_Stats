@@ -13,5 +13,5 @@ db.setup()
 now = datetime.now()
 
 for i in range(len(res)):
-    data = (i, res[i]['name'], res[i]['market_cap'], res[i]['content'], res[i]['volume_24h'], now)
+    data = (res[i]['id'], res[i]['name'], res[i]['market_cap'], res[i]['content'], res[i]['volume_24h'], now)
     db.add_data(data)
