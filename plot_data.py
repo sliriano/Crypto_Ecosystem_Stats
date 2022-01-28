@@ -16,9 +16,9 @@ def plot_marketcap(id):
         mc.append(i[2])
         dates.append(i[4])
 
-    plt.plot(mc,dates)
-    plt.ylabel("Market Cap")
-    plt.xlabel("Dates")
+    plt.plot(dates,mc)
+    plt.ylabel("Market Cap (Hundreds of Billions)")
+    plt.xlabel("Dates (UTC)\n(Month/Day/Hour)")
     plt.title(data[0][1] + " Market Capitalization Over Time")
     plt.show()
 
@@ -38,9 +38,9 @@ def plot_volume(id):
 
     plt.plot(dates,volume)
     plt.ylabel("Volume")
-    plt.xlabel("Dates")
+    plt.xlabel("Dates (UTC)\n(Month/Day/Hour)")
     plt.title(data[0][1] + " Volume Over Time")
     plt.show()
 
-#plot_marketcap('smart-contract-platform')
-plot_volume('smart-contract-platform')
+plot_marketcap('smart-contract-platform')
+#plot_volume('smart-contract-platform')
