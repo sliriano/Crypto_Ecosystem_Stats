@@ -59,11 +59,27 @@ def plot_volume(id):
         volume.append(i[3])
         dates.append(i[4])
 
+    fig = go.Figure(go.Scatter(
+        x = dates,
+        y = volume
+    ))
+
+    fig.update_layout(
+        xaxis_title = "Dates (UTC)\n(Month/Day/Hour)",
+        yaxis_title = "Volume (Billions USD)",
+        title = data[0][1] + " Volume Over Time", title_x=0.5)
+
+    fig.update_xaxes(tickangle=45,
+                    tickmode = 'array',
+                    tickvals = dates[0::5])
+
+    py.plot(fig)
+
     plt.plot(dates,volume)
     plt.ylabel("Volume")
     plt.xlabel("Dates (UTC)\n(Month/Day/Hour)")
     plt.title(data[0][1] + " Volume Over Time")
-    plt.show()
+    #plt.show()
 
-plot_marketcap('smart-contract-platform')
-#plot_volume('smart-contract-platform')
+#plot_marketcap('smart-contract-platform')
+plot_volume('smart-contract-platform')
